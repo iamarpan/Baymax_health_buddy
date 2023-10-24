@@ -19,6 +19,8 @@ class NutritionalValueExtractor:
     def extract_values(self,image_path):
         try:
             print("image_   path>>>>",image_path)
+            print("sdfsdfsdf",os.getcwd())
+            print("sdfsdf",os.listdir())
             try:
                 
                 with open(image_path, "rb") as image:
