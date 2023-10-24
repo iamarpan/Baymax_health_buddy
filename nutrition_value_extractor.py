@@ -20,7 +20,7 @@ class NutritionalValueExtractor:
         try:
             with open(image_path, "rb") as image:
                 image_content = image.read()
-
+            print("image_content",image_content)
             raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
             process_options = documentai.ProcessOptions(
                 individual_page_selector=documentai.ProcessOptions.IndividualPageSelector(
@@ -36,7 +36,7 @@ class NutritionalValueExtractor:
             )
             result = self.client.process_document(request=request)
             document = result.document
-
+            print("docuemt>>>",document)
             item_list = {}
             for entity in document.entities:
                 item_list[entity.type_]=entity.mention_text

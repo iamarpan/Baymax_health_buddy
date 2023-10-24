@@ -63,6 +63,7 @@ class ImageProcessor:
         img = cv2.imread(image_path)
         img = cv2.resize(img, target_size)
         results = self.model(image_path)
+        print("results>>>>>",results)
         detections = results.xyxy[0].cpu().numpy()
         item_list = ''
         image_text_info = []
@@ -79,6 +80,7 @@ class ImageProcessor:
                 item_list = self.clean_ingredient_data(image_text)
             else:
                 print("No data extracted")
+            print("image_text_info>>>>.",image_text_info)
             image_text_info.append((output_path,item_list,cls))
         return image_text_info
 
