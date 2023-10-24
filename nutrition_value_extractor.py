@@ -23,8 +23,8 @@ class NutritionalValueExtractor:
                 with open(image_path, "rb") as image:
                     image_content = image.read()
                     print("image_content>>",image_content)
-            except BaseException as error:
-                print("error is >",error)
+            except:
+                print("error is >")
             print("image_content",image_content)
             raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
             process_options = documentai.ProcessOptions(
