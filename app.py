@@ -44,7 +44,6 @@ class ImageProcessor:
 
     def extract_nutrients(self,image_path):
         item_list = self.nutrientExtractor.extract_values(image_path)
-        print("item_list>>>>>",item_list)
         return item_list
 
 
@@ -71,7 +70,7 @@ class ImageProcessor:
         for i, detection in enumerate(detections):
             x1, y1, x2, y2, conf, cls = detection
             cropped_img = cv2.imread(image_path)[int(y1):int(y2), int(x1):int(x2)]
-            output_path = os.path.join('static/cropped', f'cropped_{i}.jpg')
+            output_path = f'cropped_{i}.jpg'
             cv2.imwrite(output_path,cropped_img)
             print("cls>>>>>>",cls)
             if cls == 1.0:
