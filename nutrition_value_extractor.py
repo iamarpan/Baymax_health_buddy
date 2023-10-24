@@ -24,7 +24,7 @@ class NutritionalValueExtractor:
                     image_content = image.read()
                     print("image_content>>",image_content)
             except:
-                print("error is >")
+                st.write("error is >")
             print("image_content",image_content)
             raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
             process_options = documentai.ProcessOptions(
