@@ -20,10 +20,11 @@ class NutritionalValueExtractor:
         try:
             print("image_   path>>>>",image_path)
             try:
+                
                 with open(image_path, "rb") as image:
                     image_content = image.read()
                     print("image_content>>",image_content)
-            except:
+            except FileNotFoundError:
                 st.write("error is >")
             print("image_content",image_content)
             raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
