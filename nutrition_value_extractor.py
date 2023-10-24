@@ -18,6 +18,7 @@ class NutritionalValueExtractor:
 
     def extract_values(self,image_path):
         try:
+            print("image_path>>>>",image_path)
             with open(image_path, "rb") as image:
                 image_content = image.read()
             print("image_content",image_content)
