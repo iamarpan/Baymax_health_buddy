@@ -7,9 +7,9 @@ import streamlit as st
 class NutritionalValueExtractor:
 
     def __init__(self):
-        self.location = st.secrets["PROCESSOR_LOCATION"]
-        self.project_id = st.secrets["PROJECT_ID"]
-        self.processor_id = st.secrets["PROCESSOR_ID"]
+        self.location = os.environ.get("PROCESSOR_LOCATION")
+        self.project_id = os.environ.get("PROJECT_ID")
+        self.processor_id = os.environ.get("PROCESSOR_ID")
         self.mime_type = "image/jpeg"  
         opts = ClientOptions(api_endpoint=f"{self.location}-documentai.googleapis.com")
         self.client = documentai.DocumentProcessorServiceClient(client_options=opts)
@@ -18,7 +18,7 @@ class NutritionalValueExtractor:
 
     def extract_values(self,image_path):
         try:
-            print("image_path>>>>",image_path)
+            print("image_   path>>>>",image_path)
             try:
                 with open(image_path, "rb") as image:
                     image_content = image.read()
