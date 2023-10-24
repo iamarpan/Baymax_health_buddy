@@ -20,8 +20,8 @@ class NutritionalValueExtractor:
         try:
             print("image_path>>>>",image_path)
             try:
-            with open(image_path, "rb") as image:
-                image_content = image.read()
+                with open(image_path, "rb") as image:
+                    image_content = image.read()
             except BaseException as error:
                 print("error is >",error)
             print("image_content",image_content)
