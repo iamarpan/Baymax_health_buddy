@@ -18,7 +18,7 @@ class NutritionalValueExtractor:
 
     def extract_values(self,image_path):
         try:
-            streamlit_path = os.path.join('/mount/src/baymax_health_buddy',image_path)
+            streamlit_path = os.path.join('/app/baymax_health_buddy',image_path)
             st.write("image_   path>>>>",streamlit_path)
             st.write("current_working_dir",os.getcwd())
             st.write("list directory",os.listdir())
