@@ -20,7 +20,7 @@ class NutritionalValueExtractor:
         try:
             streamlit_path = os.path.join('/app/baymax_health_buddy',image_path)
             path = os.path.dirname(__file__)
-            my_path = path+image_path
+            my_path = path+'/'+image_path
             st.write(my_path)
             st.write("image_   path>>>>",streamlit_path)
             st.write("current_working_dir",os.getcwd())
