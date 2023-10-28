@@ -19,11 +19,14 @@ class NutritionalValueExtractor:
     def extract_values(self,image_path):
         try:
             streamlit_path = os.path.join('/app/baymax_health_buddy',image_path)
+            path = os.path.dirname(__file__)
+            my_path = path+image_path
+            st.write(my_path)
             st.write("image_   path>>>>",streamlit_path)
             st.write("current_working_dir",os.getcwd())
             st.write("list directory",os.listdir())
             try:
-                with open(streamlit_path, "rb") as image:
+                with open(my_path, "rb") as image:
                     image_content = image.read()
                     print("image_content>>",image_content)
             except FileNotFoundError:
