@@ -20,12 +20,10 @@ class ImageProcessor:
 
         encoded_credentials = st.secrets["GOOGLE_CLOUD_CREDENTIALS"]
         credentials = base64.b64decode(encoded_credentials).decode('utf-8')
-        st.write(credentials)
         with open('google-credentials.json', 'w') as credentials_file:
             credentials_file.write(credentials)
 
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'google-credentials.json'
-        st.write('google-credentials.json',os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
         
     def process_ingredients(self,ingredients):
         ingredient_list = []    
