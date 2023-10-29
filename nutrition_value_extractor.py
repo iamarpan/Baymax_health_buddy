@@ -41,7 +41,6 @@ class NutritionalValueExtractor:
                     field_mask=None,
                     process_options=process_options,
                 )
-                st.write("request>>>",request)
                 result = self.client.process_document(request=request)
             except Exception as e:
                 st.write("Error>>>>",e)
