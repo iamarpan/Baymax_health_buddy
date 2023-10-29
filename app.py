@@ -25,7 +25,7 @@ class ImageProcessor:
             credentials_file.write(credentials)
 
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'google-credentials.json'
-
+        st.write('google-credentials.json',os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
         
     def process_ingredients(self,ingredients):
         ingredient_list = []    
