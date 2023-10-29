@@ -26,7 +26,7 @@ class NutritionalValueExtractor:
             st.write("current_working_dir",os.getcwd())
             st.write("list directory",os.listdir())
             try:
-                with open(my_path, "rb") as image:
+                with open(image_path, "rb") as image:
                     image_content = image.read()
                     print("image_content>>",image_content)
             except Exception as e:
