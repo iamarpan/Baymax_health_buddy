@@ -34,14 +34,14 @@ class NutritionalValueExtractor:
                     pages=[1]
                 )
             )
-            st.write("raw Document>>>>",raw_document)
-            #request = documentai.ProcessRequest(
-            #    name=self.name,
-            #    raw_document=raw_document,
-            #    field_mask=None,
-            #    process_options=process_options,
-            #)
-            #result = self.client.process_document(request=request)
+            request = documentai.ProcessRequest(
+                name=self.name,
+                raw_document=raw_document,
+                field_mask=None,
+                process_options=process_options,
+            )
+            result = self.client.process_document(request=request)
+            st.write("result",result)
             #document = result.document
             #print("docuemt>>>",document)
             #item_list = {}
