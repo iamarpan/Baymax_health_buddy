@@ -21,18 +21,8 @@ class NutritionalValueExtractor:
             streamlit_path = os.path.join('/app/baymax_health_buddy',image_path)
             path = os.path.dirname(__file__)
             my_path = path+'/'+image_path
-            st.write(my_path)
-            st.write("image_   path>>>>",streamlit_path)
-            st.write("current_working_dir",os.getcwd())
-            st.write("list directory",os.listdir())
-            filenames = os.listdir('.')
-            selected_filename = image_path
-            st.write("I a,m roccking in life",filenames)
-            st.write("selected_filename",selected_filename) 
-            final_path = os.path.join(filenames, selected_filename)
-
-            st.write("You selected",final_path)
             try:
+                st.write("Inside try path>>>>",image_path)
                 with open(image_path, "rb") as image:
                     image_content = image.read()
                     print("image_content>>",image_content)
