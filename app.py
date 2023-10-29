@@ -8,7 +8,7 @@ from PIL import Image
 from nutrition_value_extractor import NutritionalValueExtractor  
 import streamlit as st
 weights_path = 'weights.pt'
-
+import base64
 
 
 
@@ -18,6 +18,15 @@ class ImageProcessor:
         self.model = torch.hub.load('WongKinYiu/yolov7', 'custom', weights_path, force_reload=True)
         self.nutrientExtractor = NutritionalValueExtractor()
 
+        encoded_credentials = st.secrets["GOOGLE_CLOUD_CREDENTIALS"]
+        credentials = base64.b64decode(encoded_credentials).decode('utf-8')
+
+        with open('google-credentials.json', 'w') as credentials_file:
+            credentials_file.write(credentials)
+
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'google-credentials.json'
+
+        
     def process_ingredients(self,ingredients):
         ingredient_list = []    
         for ingredient in ingredients:
