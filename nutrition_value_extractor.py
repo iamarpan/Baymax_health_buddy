@@ -27,10 +27,11 @@ class NutritionalValueExtractor:
             st.write("list directory",os.listdir())
             filenames = os.listdir('.')
             selected_filename = image_path
-            st.write("I a,m roccking in life") 
+            st.write("I a,m roccking in life",filenames)
+            st.write("selected_filename",selected_filename) 
             final_path = os.path.join(filenames, selected_filename)
 
-            st.write('You selected',final_path)
+            st.write("You selected",final_path)
             try:
                 with open(image_path, "rb") as image:
                     image_content = image.read()
