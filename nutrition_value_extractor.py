@@ -27,7 +27,8 @@ class NutritionalValueExtractor:
             st.write("list directory",os.listdir())
             filenames = os.listdir('.')
             selected_filename = image_path
-            final_path = os.path.join(folder_path, selected_filename)
+        
+            final_path = os.path.join(filenames, selected_filename)
 
             st.write('You selected',final_path)
             try:
@@ -37,23 +38,24 @@ class NutritionalValueExtractor:
             except Exception as e:
                 st.write("error is >",e)
             print("image_content",image_content)
-            raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
-            process_options = documentai.ProcessOptions(
-                individual_page_selector=documentai.ProcessOptions.IndividualPageSelector(
-                    pages=[1]
-                )
-            )
+            #raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
+            #process_options = documentai.ProcessOptions(
+            #    individual_page_selector=documentai.ProcessOptions.IndividualPageSelector(
+            #        pages=[1]
+            #    )
+            #)
 
-            request = documentai.ProcessRequest(
-                name=self.name,
-                raw_document=raw_document,
-                field_mask=None,
-                process_options=process_options,
-            )
-            result = self.client.process_document(request=request)
-            document = result.document
-            print("docuemt>>>",document)
-            item_list = {}
+            #request = documentai.ProcessRequest(
+            #    name=self.name,
+            #    raw_document=raw_document,
+            #    field_mask=None,
+            #    process_options=process_options,
+            #)
+            #result = self.client.process_document(request=request)
+            #document = result.document
+            #print("docuemt>>>",document)
+            #item_list = {}
+            st.write("Cane herere>>>>>>>>>>>>")
             for entity in document.entities:
                 item_list[entity.type_]=entity.mention_text
             return item_list
