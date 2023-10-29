@@ -34,13 +34,16 @@ class NutritionalValueExtractor:
                     pages=[1]
                 )
             )
-            request = documentai.ProcessRequest(
-                name=self.name,
-                raw_document=raw_document,
-                field_mask=None,
-                process_options=process_options,
-            )
-            result = self.client.process_document(request=request)
+            try:
+                request = documentai.ProcessRequest(
+                    name=self.name,
+                    raw_document=raw_document,
+                    field_mask=None,
+                    process_options=process_options,
+                )
+                result = self.client.process_document(request=request)
+            except Exception as e:
+                st.write("Error>>>>",e)
             st.write("result",result)
             #document = result.document
             #print("docuemt>>>",document)
