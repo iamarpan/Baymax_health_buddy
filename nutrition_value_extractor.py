@@ -25,6 +25,11 @@ class NutritionalValueExtractor:
             st.write("image_   path>>>>",streamlit_path)
             st.write("current_working_dir",os.getcwd())
             st.write("list directory",os.listdir())
+            filenames = os.listdir('.')
+            selected_filename = image_path
+            final_path = os.path.join(folder_path, selected_filename)
+
+            st.write('You selected `%s`' % final_path)
             try:
                 with open(image_path, "rb") as image:
                     image_content = image.read()
