@@ -27,7 +27,7 @@ class NutritionalValueExtractor:
             st.write("list directory",os.listdir())
             filenames = os.listdir('.')
             selected_filename = image_path
-        
+            st.write("I a,m roccking in life") 
             final_path = os.path.join(filenames, selected_filename)
 
             st.write('You selected',final_path)
