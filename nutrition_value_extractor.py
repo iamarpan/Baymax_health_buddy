@@ -10,6 +10,7 @@ class NutritionalValueExtractor:
         self.location = st.secrets["PROCESSOR_LOCATION"]
         self.project_id = st.secrets["PROJECT_ID"]
         self.processor_id = st.secrets["PROCESSOR_ID"]
+        st.write(self.location,self.project_id,self.processor_id)
         self.mime_type = "image/jpeg"  
         opts = ClientOptions(api_endpoint=f"{self.location}-documentai.googleapis.com")
         self.client = documentai.DocumentProcessorServiceClient(client_options=opts)
