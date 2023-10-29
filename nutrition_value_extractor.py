@@ -21,6 +21,7 @@ class NutritionalValueExtractor:
             streamlit_path = os.path.join('/app/baymax_health_buddy',image_path)
             path = os.path.dirname(__file__)
             my_path = path+'/'+image_path
+            st.write("image_apth>>>>",image_path)
             try:
                 st.write("Inside try path>>>>",image_path)
                 with open(image_path, "rb") as image:
