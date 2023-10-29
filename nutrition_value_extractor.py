@@ -27,7 +27,7 @@ class NutritionalValueExtractor:
                 with open(image_path, "rb") as image:
                     st.write("iamge",image)
                     image_content = image.read()
-                    print("image_content>>",image_content)
+                    st.write("image_content>>",image_content)
             except Exception as e:
                 st.write("error is >",e)
             print("image_content",image_content)
