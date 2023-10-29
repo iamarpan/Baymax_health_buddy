@@ -23,21 +23,18 @@ class NutritionalValueExtractor:
             my_path = path+'/'+image_path
             st.write("image_apth>>>>",image_path)
             try:
-                st.write("Inside try path>>>>",image_path)
                 with open(image_path, "rb") as image:
                     st.write("iamge",image)
                     image_content = image.read()
-                    st.write("image_content>>",image_content)
             except Exception as e:
                 st.write("error is >",e)
-            print("image_content",image_content)
-            #raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
-            #process_options = documentai.ProcessOptions(
-            #    individual_page_selector=documentai.ProcessOptions.IndividualPageSelector(
-            #        pages=[1]
-            #    )
-            #)
-
+            raw_document = documentai.RawDocument(content=image_content, mime_type=self.mime_type)
+            process_options = documentai.ProcessOptions(
+                individual_page_selector=documentai.ProcessOptions.IndividualPageSelector(
+                    pages=[1]
+                )
+            )
+            st.write("raw Document>>>>",raw_document)
             #request = documentai.ProcessRequest(
             #    name=self.name,
             #    raw_document=raw_document,
